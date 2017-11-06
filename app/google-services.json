@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "856512289563",
+    "firebase_url": "https://banksampah-12e81.firebaseio.com",
+    "project_id": "banksampah-12e81",
+    "storage_bucket": "banksampah-12e81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856512289563:android:2b93f9c73234f0fe",
+        "android_client_info": {
+          "package_name": "com.example.dimas.projectbanksampah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856512289563-0glsch8h4t6eeqqc5b8mopckimrk0t21.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5KW9cB_GP4NbRAxGkNtNM3Nh08waQ84s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
