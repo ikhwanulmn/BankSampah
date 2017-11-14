@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ResetPasswordActivity extends AppCompatActivity {
 
     private EditText inputEmail;
-    //private Button btnReset, btnBack;
+    private Button btnReset, btnBack;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
 
