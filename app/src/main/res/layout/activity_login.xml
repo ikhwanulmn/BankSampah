@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/mybackgroundlogin"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
@@ -21,7 +21,7 @@
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher2" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -60,9 +60,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
+            android:background="@drawable/mybutton"
             android:text="@string/btn_login"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btn_reset_password"
