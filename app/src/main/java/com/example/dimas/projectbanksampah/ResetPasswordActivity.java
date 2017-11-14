@@ -18,7 +18,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private EditText inputEmail;
     private Button btnReset, btnBack;
-    //private FirebaseAuth auth;
+    private FirebaseAuth auth;
     private ProgressBar progressBar;
 
     @Override
