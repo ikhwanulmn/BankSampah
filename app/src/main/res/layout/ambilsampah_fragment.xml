@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:drawableLeft="@mipmap/ic_launcher"
+                android:drawableLeft="@mipmap/ic_launcher2"
                 android:text="Jemput Sampah" />
         </LinearLayout>
 

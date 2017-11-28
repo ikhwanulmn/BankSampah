@@ -117,12 +117,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 fragment = new HomeActivity();
                 break;
+            case R.id.nav_ambilSampah:
+                fragment = new AmbilSampahActivitiy();
+                break;
             case R.id.nav_profile:
                 fragment = new ProfileActivity();
                 break;
             case R.id.nav_signout:
                 auth.signOut();
                 break;
+
         }
 
         //replacing the fragment
