@@ -32,4 +32,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+
+    <string name="sampah_prompt">Pilih Tipe sampah</string>
+    <string-array name="sampah_arrays">
+        <item>Botol Kaca</item>
+        <item>Botol Plastik</item>
+        <item>Paralon</item>
+        <item>Kardus</item>
+        <item>Kertas</item>
+    </string-array>
+
 </resources>
