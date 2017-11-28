@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         };
+        //signOut = (Button) findViewById(R.id.nav_camera);
         /*
         btnChangeEmail = (Button) findViewById(R.id.change_email_button);
         btnChangePassword = (Button) findViewById(R.id.change_password_button);
@@ -271,8 +272,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         auth.signOut();
     }
     */
-    }
 
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -312,6 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
