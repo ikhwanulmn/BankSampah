@@ -14,6 +14,7 @@
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
+    <string name="alamat">Alamat</string>
     <string name="btn_login">LOGIN</string>
     <string name="btn_link_to_register">Dont Have an Account?? Register Now!!</string>
     <string name="btn_link_to_login">I Have an Account Already!!</string>
