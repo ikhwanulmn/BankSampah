@@ -8,7 +8,8 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context="com.example.dimas.projectbanksampah.FirstLoginActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -58,7 +59,7 @@
                     android:text="@string/hint_name" />
 
                 <EditText
-                    android:id="@+id/editText22"
+                    android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -81,7 +82,7 @@
                     android:text="Home Adress" />
 
                 <EditText
-                    android:id="@+id/editText223"
+                    android:id="@+id/address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -104,7 +105,7 @@
                     android:text="Gender" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -127,7 +128,7 @@
                 android:text="Telephone Number" />
 
             <EditText
-                android:id="@+id/editText21"
+                android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -149,24 +150,24 @@
                 android:gravity="center_vertical"
                 android:text="Recovery Email" />
 
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/recEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/mybutton"
-                android:text="Register"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"/>
+        <Button
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mybutton"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="Next" />
 
     </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
