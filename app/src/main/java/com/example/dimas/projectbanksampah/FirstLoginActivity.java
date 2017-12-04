@@ -58,7 +58,7 @@ public class FirstLoginActivity extends AppCompatActivity {
         inputPhone = (EditText) findViewById(R.id.phone);
         inputRecEmail = (EditText) findViewById(R.id.recEmail);
         inputGender = (EditText) findViewById(R.id.gender);
-        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         userId = user.getUid();
         next.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +98,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                 }
 
                 createUser(name, address, phone, recEmail, email, gender);
-                //progressBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
                 //create user
 
                 startActivity(new Intent(FirstLoginActivity.this, MainActivity.class));
@@ -145,7 +145,7 @@ public class FirstLoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
     }
 
 }
