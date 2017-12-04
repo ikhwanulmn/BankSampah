@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +39,7 @@ public class FirstLoginActivity extends AppCompatActivity {
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
     private String userId;
+    private UserProfileChangeRequest profileUpdates;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,11 +65,14 @@ public class FirstLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = user.getEmail();
-                String name= inputFullName.getText().toString();
+                String name = inputFullName.getText().toString();
                 String address = inputAddress.getText().toString();
                 String phone = inputPhone.getText().toString();
                 String recEmail = inputRecEmail.getText().toString();
                 String gender = inputGender.getText().toString();
+                profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
+                user.updateProfile(profileUpdates);
+
                 if (TextUtils.isEmpty(name)) {
                     Toast.makeText(getApplicationContext(), "Enter your full name", Toast.LENGTH_SHORT).show();
                     return;
@@ -92,9 +97,10 @@ public class FirstLoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                createUser(name,address,phone,recEmail,email,gender);
+                createUser(name, address, phone, recEmail, email, gender);
                 //progressBar.setVisibility(View.VISIBLE);
                 //create user
+
                 startActivity(new Intent(FirstLoginActivity.this, MainActivity.class));
                 finish();
 

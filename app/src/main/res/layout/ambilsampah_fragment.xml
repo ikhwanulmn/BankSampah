@@ -72,7 +72,7 @@
                     app:srcCompat="@mipmap/jam" />
 
                 <EditText
-                    android:id="@+id/editText5"
+                    android:id="@+id/waktuEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -102,7 +102,7 @@
                     app:srcCompat="@mipmap/kalender" />
 
                 <EditText
-                    android:id="@+id/editText6"
+                    android:id="@+id/tanggalEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -142,7 +142,7 @@
             android:paddingRight="30dp">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"

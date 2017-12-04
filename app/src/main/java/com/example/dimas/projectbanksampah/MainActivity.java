@@ -38,17 +38,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView name, email;
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
-    private FirebaseAuth auth;
     private FirebaseUser user;
+    private FirebaseAuth auth;
     private DrawerLayout drawer;
     private FloatingActionButton fab;
     private ActionBarDrawerToggle toggle;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
+    private String fullname,userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        View header=navigationView.getHeaderView(0);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        name = (TextView) header.findViewById(R.id.nameView);
+        email = (TextView) header.findViewById(R.id.emailView);
+
+        fullname = user.getDisplayName();
+        userEmail = user.getEmail();
+
+        name.setText(fullname);
+        email.setText(userEmail);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
@@ -59,22 +73,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         displaySelectedScreen(R.id.nav_home);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        name = (TextView) findViewById(R.id.nameView);
-        email = (TextView) findViewById(R.id.emailView);
-
-        //name.setText()
-        //name.setText();
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
 
         //get current user
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
