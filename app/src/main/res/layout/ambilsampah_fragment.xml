@@ -64,8 +64,8 @@
                     android:text="Waktu "
                     android:textAlignment="center" />
 
-                <ImageView
-                    android:id="@+id/imageView3"
+                <ImageButton
+                    android:id="@+id/imageButtonJam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
