@@ -7,24 +7,22 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class OrderData {
     public String name;
-    public String address;
-    public String phone;
-    public String recEmail;
-    public String email;
-    public String gender;
+    public String userId;
+    public String waktu;
+    public String tanggal;
+    public String tipeSampah;
 
     // Default constructor required for calls to
     // DataSnapshot.getValue(User.class)
     public OrderData() {
     }
 
-    public OrderData(String name, String address, String phone, String recEmail, String email, String gender) {
+    public OrderData(String name, String userId, String waktu, String tanggal, String tipeSampah) {
         this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.recEmail =recEmail;
-        this.email = email;
-        this.gender = gender;
+        this.userId = userId;
+        this.waktu = waktu;
+        this.tanggal = tanggal;
+        this.tipeSampah = tipeSampah;
     }
 }
 

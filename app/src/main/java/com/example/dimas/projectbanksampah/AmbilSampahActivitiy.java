@@ -37,7 +37,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     private FirebaseUser user;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
-    private String userId;
+    private String userId,orderId;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
@@ -135,8 +135,9 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         // In real apps this userId should be fetched
         // by implementing firebase auth
         Toast.makeText(((MainActivity) getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
-        //OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
-        //mFirebaseDatabase.child(userId).setValue(user);
+        OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
+        orderId = mFirebaseDatabase.push().getKey();
+        mFirebaseDatabase.child(orderId).setValue(order);
 
         addUserChangeListener();
     }
@@ -146,7 +147,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
      */
     private void addUserChangeListener() {
         // User data change listener
-        mFirebaseDatabase.child(userId).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(orderId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserData user = dataSnapshot.getValue(UserData.class);
