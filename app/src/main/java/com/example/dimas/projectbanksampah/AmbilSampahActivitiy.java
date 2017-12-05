@@ -77,7 +77,9 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         order.setOnClickListener(this);
 
         buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
+        buttonJam.setOnClickListener(this);
 
+        /*
         buttonJam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +88,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 newFragment.show(getActivity().getFragmentManager(),"TimePicker");
             }
         });
-
+        */
         inputTipeSampah = (Spinner) v.findViewById(R.id.spinner);
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
         inputTanggal = (EditText) v.findViewById(R.id.tanggalEdit);
@@ -135,14 +137,13 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                     ft.commit();
                 }
                 break;
+            case R.id.imageButtonJam:
+                DialogFragment newFragment = new timePickerFragment();
+                newFragment.show(getActivity().getFragmentManager(),"TimePicker");
         }
     }
 
     private void createOrder(String name, String userId, String waktu, String tanggal, String tipeSampah ) {
-        // TODO
-        // In real apps this userId should be fetched
-        // by implementing firebase auth
-
         OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(order);
