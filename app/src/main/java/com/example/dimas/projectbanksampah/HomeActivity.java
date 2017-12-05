@@ -17,6 +17,9 @@ import android.widget.ImageView;
 public class HomeActivity extends Fragment{
     private ImageView imageView;
     private AnimationDrawable anim;
+    public HomeActivity(){
+
+    }
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments

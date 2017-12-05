@@ -1,16 +1,13 @@
 package com.example.dimas.projectbanksampah;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +19,9 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,19 +32,21 @@ import com.google.firebase.database.ValueEventListener;
  * Created by dimas on 11/28/2017.
  */
 
-public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implements View.OnClickListener{
+public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implements View.OnClickListener {
 
     private Spinner inputTipeSampah;
-    private EditText inputWaktu, inputTanggal;
+    private EditText inputWaktu, inputTanggal, inputAlamat;
     private Button order;
     private ImageButton buttonJam;
-    //private ProgressBar progressBar;
+    private ProgressBar progressBar;
     private FirebaseUser user;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
-    private String userId,orderId;
+    private String userId,orderId,address;
+    private UserData data;
     private int hour_x, minute_x;
     static final int DIALOG_ID = 0;
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
@@ -57,8 +56,23 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         //Get Firebase auth instance
         user = FirebaseAuth.getInstance().getCurrentUser();
         mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+
         // get reference to 'users' node
+        userId = user.getUid();
+        mFirebaseDatabase.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                data = dataSnapshot.getValue(UserData.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
+
         order = (Button) v.findViewById(R.id.order);
         order.setOnClickListener(this);
 
@@ -73,51 +87,13 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             }
         });
 
-
         inputTipeSampah = (Spinner) v.findViewById(R.id.spinner);
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
         inputTanggal = (EditText) v.findViewById(R.id.tanggalEdit);
-        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        userId = user.getUid();
+        inputAlamat = (EditText) v.findViewById(R.id.alamat);
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
 
 
-        /*
-        userId = user.getUid();
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nama = user.getDisplayName();
-                String email = user.getEmail();
-                String userID = user.getUid();
-                String waktu = inputWaktu.getText().toString();
-                String tanggal = inputTanggal.getText().toString();
-                String tipeSampah = inputTipeSampah.getTransitionName().toString();
-
-                if (TextUtils.isEmpty(waktu)) {
-                    Toast.makeText(((MainActivity)getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(tanggal)) {
-                    Toast.makeText(((MainActivity)getActivity()), "Enter your address", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                /*
-                if (address.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Enter Proper Address!!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                createOrder(name, address, phone, recEmail, email, gender);
-                //progressBar.setVisibility(View.VISIBLE);
-                //create user
-
-                //startActivity(new Intent(AmbilSampahActivitiy.this, MainActivity.class));
-                //finish();
-
-            }
-        });
-        */
         return v;
     }
 
@@ -125,11 +101,10 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.order:
-                String name = user.getDisplayName();
-                String userID = user.getUid();
                 String waktu = inputWaktu.getText().toString();
                 String tanggal = inputTanggal.getText().toString();
                 String tipeSampah = inputTipeSampah.getTransitionName();
+                String alamat = inputAlamat.getText().toString();
 
                 if (TextUtils.isEmpty(waktu)) {
                     Toast.makeText(((MainActivity) getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
@@ -140,13 +115,25 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                     Toast.makeText(((MainActivity) getActivity()), "Enter your address", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(TextUtils.isEmpty((alamat))){
+                    Toast.makeText(((MainActivity) getActivity()), "Yout Default Home Address Will Be Used", Toast.LENGTH_SHORT).show();
+                }
                 /*
                 if (address.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Enter Proper Address!!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 */
-                createOrder(name, userId, waktu, tanggal, tipeSampah);
+
+                createOrder(data.name, userId, waktu, tanggal, tipeSampah);
+                android.support.v4.app.Fragment fragment = new HomeActivity();
+
+                if (fragment != null) {
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.content_frame, fragment);
+                    ft.commit();
+                }
                 break;
         }
     }
@@ -155,7 +142,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         // TODO
         // In real apps this userId should be fetched
         // by implementing firebase auth
-        Toast.makeText(((MainActivity) getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
+
         OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(order);
@@ -168,10 +155,11 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
      */
     private void addUserChangeListener() {
         // User data change listener
-        mFirebaseDatabase.child(orderId).addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase.child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserData user = dataSnapshot.getValue(UserData.class);
+                data = user;
             }
 
             @Override
@@ -196,4 +184,3 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             };
 
 }
-

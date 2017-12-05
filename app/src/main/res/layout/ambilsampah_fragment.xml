@@ -126,7 +126,7 @@
                 android:text="Alamat Penjemputan : " />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/alamat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"

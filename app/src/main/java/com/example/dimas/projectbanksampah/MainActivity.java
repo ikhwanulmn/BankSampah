@@ -32,8 +32,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Button btnChangeEmail, btnChangePassword, btnSendResetEmail, btnRemoveUser,
-            changeEmail, changePassword, sendEmail, remove, signOut;
 
     private TextView name, email;
     private ProgressBar progressBar;
@@ -54,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header=navigationView.getHeaderView(0);
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         name = (TextView) header.findViewById(R.id.nameView);
         email = (TextView) header.findViewById(R.id.emailView);

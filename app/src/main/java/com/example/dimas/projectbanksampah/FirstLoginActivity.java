@@ -83,7 +83,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(phone)) {
+                if (TextUtils.isEmpty(phone) ) {
                     Toast.makeText(getApplicationContext(), "Enter yout phone number", Toast.LENGTH_SHORT).show();
                     return;
                 }
