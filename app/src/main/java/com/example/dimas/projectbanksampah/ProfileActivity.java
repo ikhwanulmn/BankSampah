@@ -21,6 +21,7 @@ public class ProfileActivity extends Fragment {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         return inflater.inflate(R.layout.profile_fragment, container, false);
+
         /*
         btnChangeEmail = (Button) findViewById(R.id.change_email_button);
         btnChangePassword = (Button) findViewById(R.id.change_password_button);

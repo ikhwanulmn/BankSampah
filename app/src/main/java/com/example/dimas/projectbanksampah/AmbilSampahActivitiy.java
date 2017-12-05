@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -33,7 +34,8 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     private Spinner inputTipeSampah;
     private EditText inputWaktu, inputTanggal;
     private Button order;
-    private ProgressBar progressBar;
+    private ImageButton buttonJam;
+    //private ProgressBar progressBar;
     private FirebaseUser user;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
@@ -53,13 +55,52 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
 
         order = (Button) v.findViewById(R.id.order);
+        buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
         order.setOnClickListener(this);
+        buttonJam.setOnClickListener(this);
 
         inputTipeSampah = (Spinner) v.findViewById(R.id.spinner);
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
         inputTanggal = (EditText) v.findViewById(R.id.tanggalEdit);
-        progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
         userId = user.getUid();
+        /*
+        userId = user.getUid();
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nama = user.getDisplayName();
+                String email = user.getEmail();
+                String userID = user.getUid();
+                String waktu = inputWaktu.getText().toString();
+                String tanggal = inputTanggal.getText().toString();
+                String tipeSampah = inputTipeSampah.getTransitionName().toString();
+
+                if (TextUtils.isEmpty(waktu)) {
+                    Toast.makeText(((MainActivity)getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(tanggal)) {
+                    Toast.makeText(((MainActivity)getActivity()), "Enter your address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                /*
+                if (address.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Enter Proper Address!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                createOrder(name, address, phone, recEmail, email, gender);
+                //progressBar.setVisibility(View.VISIBLE);
+                //create user
+
+                //startActivity(new Intent(AmbilSampahActivitiy.this, MainActivity.class));
+                //finish();
+
+            }
+        });
+        */
         return v;
     }
 
@@ -90,6 +131,9 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 */
                 createOrder(name, userId, waktu, tanggal, tipeSampah);
                 break;
+            case R.id.imageButtonJam:
+                Toast.makeText(((MainActivity) getActivity()), "Goblog", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
@@ -97,6 +141,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         // TODO
         // In real apps this userId should be fetched
         // by implementing firebase auth
+        Toast.makeText(((MainActivity) getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
         OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(order);

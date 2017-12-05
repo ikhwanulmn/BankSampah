@@ -59,17 +59,6 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:id="@+id/sign_up_button"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/mybutton"
-            android:text="@string/action_sign_in_short"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
-
-        <Button
             android:id="@+id/btn_reset_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -80,6 +69,17 @@
             android:textColor="@color/colorAccent" />
 
         <!-- Link to Login Screen -->
+
+        <Button
+            android:id="@+id/sign_up_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/mybutton"
+            android:text="@string/action_sign_in_short"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/sign_in_button"
