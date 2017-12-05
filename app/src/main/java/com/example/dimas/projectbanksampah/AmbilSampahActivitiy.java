@@ -1,9 +1,14 @@
 package com.example.dimas.projectbanksampah;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by dimas on 11/28/2017.
  */
 
-public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implements View.OnClickListener {
+public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implements View.OnClickListener{
 
     private Spinner inputTipeSampah;
     private EditText inputWaktu, inputTanggal;
@@ -40,7 +46,8 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
     private String userId,orderId;
-
+    private int hour_x, minute_x;
+    static final int DIALOG_ID = 0;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
@@ -50,20 +57,30 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         //Get Firebase auth instance
         user = FirebaseAuth.getInstance().getCurrentUser();
         mFirebaseInstance = FirebaseDatabase.getInstance();
-
         // get reference to 'users' node
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
-
         order = (Button) v.findViewById(R.id.order);
-        buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
         order.setOnClickListener(this);
-        buttonJam.setOnClickListener(this);
+
+        buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
+
+        buttonJam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(((MainActivity) getActivity()), "Goblog", Toast.LENGTH_SHORT).show();
+                DialogFragment newFragment = new timePickerFragment();
+                newFragment.show(getActivity().getFragmentManager(),"TimePicker");
+            }
+        });
+
 
         inputTipeSampah = (Spinner) v.findViewById(R.id.spinner);
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
         inputTanggal = (EditText) v.findViewById(R.id.tanggalEdit);
         //progressBar = (ProgressBar) findViewById(R.id.progressBar);
         userId = user.getUid();
+
+
         /*
         userId = user.getUid();
         next.setOnClickListener(new View.OnClickListener() {
@@ -131,9 +148,6 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 */
                 createOrder(name, userId, waktu, tanggal, tipeSampah);
                 break;
-            case R.id.imageButtonJam:
-                Toast.makeText(((MainActivity) getActivity()), "Goblog", Toast.LENGTH_SHORT).show();
-                break;
         }
     }
 
@@ -166,5 +180,20 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             }
         });
     }
+    protected Dialog onCreateDialog(int id){
+        if(id==DIALOG_ID)
+            return new TimePickerDialog((MainActivity)getActivity(),kTimePickerListener,hour_x,minute_x,false);
+        return null;
+    }
+    protected TimePickerDialog.OnTimeSetListener kTimePickerListener=
+            new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                    hour_x =  hour;
+                    minute_x = minute;
+                    Toast.makeText(((MainActivity) getActivity()),hour_x + " : " + minute_x,Toast.LENGTH_LONG).show();
+                }
+            };
+
 }
 
