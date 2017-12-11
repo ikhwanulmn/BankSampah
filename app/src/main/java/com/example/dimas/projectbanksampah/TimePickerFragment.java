@@ -17,7 +17,7 @@ import android.widget.TimePicker;
 /**
  * Created by Fazlur Rahman on 12/5/2017.
  */
-public class timePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
+public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){

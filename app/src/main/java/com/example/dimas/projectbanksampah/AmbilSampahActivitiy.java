@@ -44,6 +44,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     private FirebaseDatabase mFirebaseInstance;
     private String userId,orderId,address;
     private UserData data;
+    private OrderData orderData;
     private int hour_x, minute_x;
     static final int DIALOG_ID = 0;
 
@@ -71,6 +72,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
 
             }
         });
+
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
 
         order = (Button) v.findViewById(R.id.order);
@@ -79,18 +81,6 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
         buttonJam.setOnClickListener(this);
 
-        buttonJam = (ImageButton) v.findViewById(R.id.imageButtonKalender);
-        buttonJam.setOnClickListener(this);
-        /*
-        buttonJam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(((MainActivity) getActivity()), "Goblog", Toast.LENGTH_SHORT).show();
-                DialogFragment newFragment = new timePickerFragment();
-                newFragment.show(getActivity().getFragmentManager(),"TimePicker");
-            }
-        });
-        */
         inputTipeSampah = (Spinner) v.findViewById(R.id.spinner);
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
         inputTanggal = (EditText) v.findViewById(R.id.tanggalEdit);
@@ -105,6 +95,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.order:
+                String nama = data.name;
                 String waktu = inputWaktu.getText().toString();
                 String tanggal = inputTanggal.getText().toString();
                 String tipeSampah = inputTipeSampah.getTransitionName();
@@ -122,15 +113,10 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 if(TextUtils.isEmpty((alamat))){
                     Toast.makeText(((MainActivity) getActivity()), "Yout Default Home Address Will Be Used", Toast.LENGTH_SHORT).show();
                 }
-                /*
-                if (address.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Enter Proper Address!!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                */
 
-                createOrder(data.name, userId, waktu, tanggal, tipeSampah);
-                android.support.v4.app.Fragment fragment = new HomeActivity();
+                createOrder(nama, userId, waktu, tanggal, tipeSampah);
+
+                android.support.v4.app.Fragment fragment = new CommitOrder(orderId,data,orderData);
 
                 if (fragment != null) {
                     FragmentManager fm = getFragmentManager();
@@ -140,20 +126,15 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 }
                 break;
             case R.id.imageButtonJam:
-                DialogFragment newFragment = new timePickerFragment();
+                DialogFragment newFragment = new TimePickerFragment();
                 newFragment.show(getActivity().getFragmentManager(),"TimePicker");
-                break;
-            case R.id.imageButtonKalender:
-                DialogFragment newFragment1 = new DatePickerFragment();
-                newFragment1.show(getActivity().getFragmentManager(),"DatePicker");
-                break;
         }
     }
 
     private void createOrder(String name, String userId, String waktu, String tanggal, String tipeSampah ) {
-        OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
+        orderData = new OrderData(name, userId, waktu, tanggal, tipeSampah);
         orderId = mFirebaseDatabase.push().getKey();
-        mFirebaseDatabase.child(orderId).setValue(order);
+        mFirebaseDatabase.child(orderId).setValue(orderData);
         addUserChangeListener();
     }
 
