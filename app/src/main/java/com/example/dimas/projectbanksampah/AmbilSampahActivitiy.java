@@ -37,7 +37,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     private Spinner inputTipeSampah;
     private EditText inputWaktu, inputTanggal, inputAlamat;
     private Button order;
-    private ImageButton buttonJam;
+    private ImageButton buttonJam, buttonTanggal;
     private ProgressBar progressBar;
     private FirebaseUser user;
     private DatabaseReference mFirebaseDatabase;
@@ -80,6 +80,9 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
 
         buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
         buttonJam.setOnClickListener(this);
+
+        buttonTanggal = (ImageButton) v.findViewById(R.id.imageButtonKalender);
+        buttonTanggal.setOnClickListener(this);
 
         inputTipeSampah = (Spinner) v.findViewById(R.id.spinner);
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
