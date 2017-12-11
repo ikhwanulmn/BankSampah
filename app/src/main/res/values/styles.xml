@@ -15,4 +15,21 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="myTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="android:numbersTextColor">#ffffff</item>
+        <item name="android:numbersBackgroundColor">@color/bg_login</item>
+        <item name="android:numbersSelectorColor">#88000000</item>
+        <item name="android:headerBackground">@drawable/mybackgroundlogin</item>
+    </style>
+    <style name="myDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:numbersTextColor">#ffffff</item>
+        <item name="android:numbersBackgroundColor">@color/bg_login</item>
+        <item name="android:numbersSelectorColor">#88000000</item>
+        <item name="android:headerBackground">@drawable/mybackgroundlogin</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/green</item>
+        <item name="colorControlNormal">@color/green</item>
+    </style>
+
 </resources>

@@ -1,3 +1,5 @@
+
+
 package com.example.dimas.projectbanksampah;
 
 import android.app.TimePickerDialog;
@@ -25,10 +27,9 @@ public class timePickerFragment extends DialogFragment implements TimePickerDial
         int minute = c.get(Calendar.MINUTE);
 
         //Create and return a new instance of TimePickerDialog
-        return new TimePickerDialog(getActivity(),this, hour, minute,
+        return new TimePickerDialog(getActivity(), R.style.DialogTheme,this, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
     }
-
     //onTimeSet() callback method
     public void onTimeSet(TimePicker view, int hourOfDay, int minute){
         //Do something with the user chosen time

@@ -95,10 +95,11 @@
                     android:text="Tanggal"
                     android:textAlignment="center" />
 
-                <ImageView
-                    android:id="@+id/imageView4"
+                <ImageButton
+                    android:id="@+id/imageButtonKalender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     app:srcCompat="@mipmap/kalender" />
 
                 <EditText

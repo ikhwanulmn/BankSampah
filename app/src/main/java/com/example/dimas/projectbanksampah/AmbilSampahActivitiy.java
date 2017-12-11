@@ -79,6 +79,8 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         buttonJam = (ImageButton) v.findViewById(R.id.imageButtonJam);
         buttonJam.setOnClickListener(this);
 
+        buttonJam = (ImageButton) v.findViewById(R.id.imageButtonKalender);
+        buttonJam.setOnClickListener(this);
         /*
         buttonJam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +142,11 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             case R.id.imageButtonJam:
                 DialogFragment newFragment = new timePickerFragment();
                 newFragment.show(getActivity().getFragmentManager(),"TimePicker");
+                break;
+            case R.id.imageButtonKalender:
+                DialogFragment newFragment1 = new DatePickerFragment();
+                newFragment1.show(getActivity().getFragmentManager(),"DatePicker");
+                break;
         }
     }
 
@@ -147,7 +154,6 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         OrderData order = new OrderData(name, userId, waktu, tanggal, tipeSampah);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(order);
-
         addUserChangeListener();
     }
 
@@ -169,19 +175,4 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             }
         });
     }
-    protected Dialog onCreateDialog(int id){
-        if(id==DIALOG_ID)
-            return new TimePickerDialog((MainActivity)getActivity(),kTimePickerListener,hour_x,minute_x,false);
-        return null;
-    }
-    protected TimePickerDialog.OnTimeSetListener kTimePickerListener=
-            new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                    hour_x =  hour;
-                    minute_x = minute;
-                    Toast.makeText(((MainActivity) getActivity()),hour_x + " : " + minute_x,Toast.LENGTH_LONG).show();
-                }
-            };
-
 }
