@@ -59,10 +59,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fullname = user.getDisplayName();
         userEmail = user.getEmail();
-
         name.setText(fullname);
         email.setText(userEmail);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
