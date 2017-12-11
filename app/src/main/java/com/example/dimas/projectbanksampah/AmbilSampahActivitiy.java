@@ -128,6 +128,11 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             case R.id.imageButtonJam:
                 DialogFragment newFragment = new TimePickerFragment();
                 newFragment.show(getActivity().getFragmentManager(),"TimePicker");
+                break;
+            case R.id.imageButtonKalender:
+                DialogFragment newFragment1 = new DatePickerFragment();
+                newFragment1.show(getActivity().getFragmentManager(),"DatePicker");
+                break;
         }
     }
 
