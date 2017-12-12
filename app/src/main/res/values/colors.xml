@@ -18,5 +18,6 @@
     <color name="lbl_name">#333333</color>
     <color name="btn_logut_bg">#ff6861</color>
     <color name="green">#007c1b</color>
+    <color name="darkbutton">#2A2B2A</color>
 
 </resources>
