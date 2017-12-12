@@ -61,7 +61,7 @@
             <EditText
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
@@ -98,19 +98,18 @@
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
+                android:layout_width="171dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="Gender" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:entries="@array/gender"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -156,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textEmailAddress" />
 
         </LinearLayout>
 

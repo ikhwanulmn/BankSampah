@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,7 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FirstLoginActivity extends AppCompatActivity {
     private static final String TAG = SignupActivity.class.getSimpleName();
-    private EditText inputFullName, inputAddress, inputPhone, inputRecEmail, inputGender;
+    private EditText inputFullName, inputAddress, inputPhone, inputRecEmail;
+    private Spinner inputGender;
     private Button next;
     private ProgressBar progressBar;
     private FirebaseUser user;
@@ -57,7 +59,7 @@ public class FirstLoginActivity extends AppCompatActivity {
         inputAddress = (EditText) findViewById(R.id.address);
         inputPhone = (EditText) findViewById(R.id.phone);
         inputRecEmail = (EditText) findViewById(R.id.recEmail);
-        inputGender = (EditText) findViewById(R.id.gender);
+        inputGender = (Spinner) findViewById(R.id.gender);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         userId = user.getUid();
@@ -69,7 +71,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                 String address = inputAddress.getText().toString();
                 String phone = inputPhone.getText().toString();
                 String recEmail = inputRecEmail.getText().toString();
-                String gender = inputGender.getText().toString();
+                String gender = inputGender.getSelectedItem().toString();
                 profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                 user.updateProfile(profileUpdates);
 

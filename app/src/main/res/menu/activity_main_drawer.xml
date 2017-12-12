@@ -12,11 +12,6 @@
             android:id="@+id/nav_ambilSampah"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Ambil Sampah" />
-        <item
-            android:id="@+id/nav_pemesanan"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Progress Pemesanan" />
-
     </group>
 
     <item android:title="Profile">

@@ -50,4 +50,9 @@
         <item>Kertas</item>
     </string-array>
 
+    <string-array name="gender">
+        <item>Laki-Laki</item>
+        <item>Wanita</item>
+    </string-array>
+
 </resources>

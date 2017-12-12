@@ -128,6 +128,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                     ft.commit();
                 }
                 break;
+
             case R.id.imageButtonJam:
                 DialogFragment newFragment = new TimePickerFragment();
                 newFragment.show(getActivity().getFragmentManager(),"TimePicker");
