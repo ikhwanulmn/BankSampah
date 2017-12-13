@@ -1,5 +1,6 @@
 package com.example.dimas.projectbanksampah;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,8 +40,11 @@ public class ProfileActivity extends Fragment {
     private String userId,orderId,address;
     private UserData data;
     private OrderData orderData;
-    private Button btnChangePass;
-    private TextView nama,gender,alamat,nomor,emailrec;
+    private Button btnChangePassword,btnExecChangePass;
+    private EditText newPassword;
+    private int terbuka;
+    private FirebaseAuth auth;
+    private TextView nama,gender,alamat,nomor,emailrec,textNewPass;
     public ProfileActivity() {
     }
 
@@ -71,8 +79,6 @@ public class ProfileActivity extends Fragment {
 
             }
         });
-
-
         return v;
 
         /*btnChangePassword = (Button) findViewById(R.id.change_password_button);
@@ -266,5 +272,8 @@ public class ProfileActivity extends Fragment {
         auth.signOut();
     }
     */
+    }
+    public void signOut() {
+        auth.signOut();
     }
 }
