@@ -114,7 +114,7 @@ public class FirstLoginActivity extends AppCompatActivity {
         // TODO
         // In real apps this userId should be fetched
         // by implementing firebase auth
-        UserData user = new UserData(name,address,phone,recEmail,email,gender);
+        UserData user = new UserData(name,address,phone,recEmail,email,gender,0);
         mFirebaseDatabase.child(userId).setValue(user);
 
         addUserChangeListener();
