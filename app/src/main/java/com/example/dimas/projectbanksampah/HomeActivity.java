@@ -14,7 +14,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by dimas on 11/28/2017.
@@ -22,8 +31,14 @@ import android.widget.Toast;
 
 public class HomeActivity extends Fragment implements View.OnClickListener{
     private ImageView imageView;
+    private TextView points;
     private AnimationDrawable anim;
     private Button jemput;
+    private FirebaseUser user;
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
+    private String userId;
+    private UserData data;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
@@ -34,11 +49,32 @@ public class HomeActivity extends Fragment implements View.OnClickListener{
         jemput = (Button) v.findViewById(R.id.buttonJemput);
         jemput.setOnClickListener(this);
 
+        points = (TextView) v.findViewById(R.id.points);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+        userId=user.getUid();
+
+
         imageView = (ImageView) v.findViewById(R.id.imageAnimation);
         if (imageView == null) throw new AssertionError();
         imageView.setBackgroundResource(R.drawable.animasi);
         anim = (AnimationDrawable) imageView.getBackground();
         anim.start();
+
+        mFirebaseDatabase.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                data = dataSnapshot.getValue(UserData.class);
+                points.setText(data.points.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+
         return v;
 
     }

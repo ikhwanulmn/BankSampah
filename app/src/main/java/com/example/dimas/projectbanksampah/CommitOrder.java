@@ -56,6 +56,8 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
         //Get Firebase auth instance
         user = FirebaseAuth.getInstance().getCurrentUser();
         mFirebaseInstance = FirebaseDatabase.getInstance();
+        userId=user.getUid();
+
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
 
         // get reference to 'users' node
@@ -87,8 +89,9 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
         Fragment fragment;
         switch (v.getId()) {
             case R.id.proceed:
-
-                 fragment = new HomeActivity();
+                mFirebaseDatabase = mFirebaseInstance.getReference("users");
+                mFirebaseDatabase.child(userId).child("points").setValue(dataUser.points + 1);
+                fragment = new HomeActivity();
 
                 if (fragment != null) {
                     FragmentManager fm = getFragmentManager();

@@ -12,14 +12,14 @@ public class UserData {
     public String recEmail;
     public String email;
     public String gender;
-    public int points;
+    public Integer points;
 
     // Default constructor required for calls to
     // DataSnapshot.getValue(User.class)
     public UserData() {
     }
 
-    public UserData(String name, String address, String phone, String recEmail, String email, String gender, int points) {
+    public UserData(String name, String address, String phone, String recEmail, String email, String gender, Integer points) {
         this.name = name;
         this.address = address;
         this.phone = phone;
