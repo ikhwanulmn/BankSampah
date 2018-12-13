@@ -101,7 +101,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 String nama = data.name;
                 String waktu = inputWaktu.getText().toString();
                 String tanggal = inputTanggal.getText().toString();
-                String tipeSampah = inputTipeSampah.getTransitionName();
+                String tipeSampah = inputTipeSampah.getSelectedItem().toString();
                 String alamat = inputAlamat.getText().toString();
 
                 if (TextUtils.isEmpty(waktu)) {
@@ -141,7 +141,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
     }
 
     private void createOrder(String name, String userId, String waktu, String tanggal, String tipeSampah ) {
-        orderData = new OrderData(name, userId, waktu, tanggal, tipeSampah);
+        orderData = new OrderData(name, userId, waktu, tanggal, tipeSampah, 1);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(orderData);
         addUserChangeListener();

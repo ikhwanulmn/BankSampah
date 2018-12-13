@@ -11,18 +11,20 @@ public class OrderData {
     public String waktu;
     public String tanggal;
     public String tipeSampah;
+    public Integer berat;
 
     // Default constructor required for calls to
     // DataSnapshot.getValue(User.class)
     public OrderData() {
     }
 
-    public OrderData(String name, String userId, String waktu, String tanggal, String tipeSampah) {
+    public OrderData(String name, String userId, String waktu, String tanggal, String tipeSampah, Integer berat) {
         this.name = name;
         this.userId = userId;
         this.waktu = waktu;
         this.tanggal = tanggal;
         this.tipeSampah = tipeSampah;
+        this.berat = berat;
     }
 }
 

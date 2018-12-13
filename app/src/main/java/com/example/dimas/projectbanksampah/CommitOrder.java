@@ -9,18 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by dimas on 12/5/2017.
@@ -34,7 +29,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
     private FirebaseUser user;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
-    private String userId, orderId;
+    private String userId, data;
     private UserData dataUser;
     private OrderData dataOrder;
 
@@ -42,7 +37,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
     }
 
     public CommitOrder(String orderId, UserData dataUser, OrderData dataOrder) {
-        this.orderId = orderId;
+        this.data = orderId;
         this.dataUser = dataUser;
         this.dataOrder = dataOrder;
     }
@@ -84,15 +79,34 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
         return v;
     }
 
+    public void addPoints(OrderData data){
+
+        if (data.tipeSampah.equals("Botol Kaca") ) {
+            dataUser.points += data.berat * 1;
+        }
+        else if (data.tipeSampah.equals("Botol Platik")){
+            dataUser.points += data.berat * 2;
+        }
+        else if (data.tipeSampah.equals("Paralon")){
+            dataUser.points += data.berat * 3;
+        }
+        else if (data.tipeSampah.equals("Kardus")){
+            dataUser.points += data.berat * 4;
+        }
+        else if (data.tipeSampah.equals("Kertas")){
+            dataUser.points += data.berat * 5;
+        }
+
+        mFirebaseDatabase = mFirebaseInstance.getReference("users");
+        mFirebaseDatabase.child(userId).child("points").setValue(dataUser.points);
+    }
     @Override
     public void onClick(View v) {
         Fragment fragment;
         switch (v.getId()) {
             case R.id.proceed:
-                mFirebaseDatabase = mFirebaseInstance.getReference("users");
-                mFirebaseDatabase.child(userId).child("points").setValue(dataUser.points + 1);
                 fragment = new HomeActivity();
-
+                addPoints(this.dataOrder);
                 if (fragment != null) {
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
@@ -102,7 +116,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
                 break;
             case R.id.cancel:
 
-                mFirebaseDatabase.child(orderId).removeValue();
+                mFirebaseDatabase.child(data).removeValue();
                 fragment = new HomeActivity();
 
                 if (fragment != null) {
