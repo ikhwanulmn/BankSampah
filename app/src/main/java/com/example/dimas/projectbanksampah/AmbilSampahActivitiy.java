@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implements View.OnClickListener {
 
     private Spinner inputTipeSampah;
-    private EditText inputWaktu, inputTanggal, inputAlamat;
+    private EditText inputWaktu, inputTanggal, inputAlamat, inputBerat;
     private Button order;
     private ImageButton buttonJam, buttonTanggal;
     private ProgressBar progressBar;
@@ -88,6 +88,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         inputWaktu = (EditText) v.findViewById(R.id.waktuEdit);
         inputTanggal = (EditText) v.findViewById(R.id.tanggalEdit);
         inputAlamat = (EditText) v.findViewById(R.id.alamat);
+        inputBerat = (EditText) v.findViewById(R.id.berat_sampah);
         progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
 
 
@@ -103,6 +104,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 String tanggal = inputTanggal.getText().toString();
                 String tipeSampah = inputTipeSampah.getSelectedItem().toString();
                 String alamat = inputAlamat.getText().toString();
+                Integer beratSampah = Integer.valueOf(inputBerat.getText().toString());
 
                 if (TextUtils.isEmpty(waktu)) {
                     Toast.makeText(((MainActivity) getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
@@ -117,7 +119,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                     Toast.makeText(((MainActivity) getActivity()), "Yout Default Home Address Will Be Used", Toast.LENGTH_SHORT).show();
                 }
 
-                createOrder(nama, userId, waktu, tanggal, tipeSampah);
+                createOrder(nama, userId, waktu, tanggal, tipeSampah, beratSampah);
 
                 android.support.v4.app.Fragment fragment = new CommitOrder(orderId,data,orderData);
 
@@ -140,8 +142,8 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         }
     }
 
-    private void createOrder(String name, String userId, String waktu, String tanggal, String tipeSampah ) {
-        orderData = new OrderData(name, userId, waktu, tanggal, tipeSampah, 1);
+    private void createOrder(String name, String userId, String waktu, String tanggal, String tipeSampah, Integer beratSampah ) {
+        orderData = new OrderData(name, userId, waktu, tanggal, tipeSampah, beratSampah);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(orderData);
         addUserChangeListener();
