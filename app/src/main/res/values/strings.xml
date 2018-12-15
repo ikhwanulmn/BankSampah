@@ -16,7 +16,7 @@
     <string name="hint_name">Fullname</string>
     <string name="alamat">Alamat</string>
     <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">Dont Have an Account?? Register Now!!</string>
+    <string name="btn_link_to_register">Register Now!!</string>
     <string name="btn_link_to_login">I Have an Account Already!!</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="btn_forgot_password">Forgot your password?</string>
@@ -43,11 +43,11 @@
 
     <string name="sampah_prompt">Pilih Tipe sampah</string>
     <string-array name="sampah_arrays">
-        <item>Botol Kaca</item>
-        <item>Botol Plastik</item>
-        <item>Paralon</item>
-        <item>Kardus</item>
-        <item>Kertas</item>
+        <item>Botol Kaca (1 poin)</item>
+        <item>Botol Plastik (2 poin)</item>
+        <item>Paralon (3 poin)</item>
+        <item>Kardus (4 poin)</item>
+        <item>Kertas (5 poin)</item>
     </string-array>
 
     <string-array name="gender">

@@ -13,14 +13,6 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/mybackgroundlogin"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
@@ -34,9 +26,16 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Proceed Order"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
             android:id="@+id/namaPemesan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="@string/hint_nama"
             android:inputType="text"
             android:maxLines="1"
@@ -45,7 +44,7 @@
         <TextView
             android:id="@+id/alamatPemesan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="@string/hint_alamat"
             android:inputType="text"
             android:maxLines="4"
@@ -54,7 +53,7 @@
         <TextView
             android:id="@+id/tanggalPengPemesan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="@string/hint_gender"
             android:inputType="text"
             android:maxLines="1"
@@ -63,7 +62,7 @@
         <TextView
             android:id="@+id/waktuPengPemesan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="@string/hint_recoveryemail"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -72,7 +71,7 @@
         <TextView
             android:id="@+id/noHPPemesan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="@string/hint_noHP"
             android:inputType="phone"
             android:maxLines="1"
@@ -90,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@color/btn_cancel"
             android:text="Cancel"
             android:textStyle="bold" />
 
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/btn_proceed"
             android:text="Proceed"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
