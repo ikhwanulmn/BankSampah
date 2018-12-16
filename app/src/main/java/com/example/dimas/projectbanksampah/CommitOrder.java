@@ -17,10 +17,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by dimas on 12/5/2017.
- */
-
 public class CommitOrder extends Fragment implements View.OnClickListener {
 
     private TextView name, address, tanggal, waktu, phone;

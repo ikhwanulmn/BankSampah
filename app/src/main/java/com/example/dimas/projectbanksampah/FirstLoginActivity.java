@@ -27,9 +27,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * Created by dimas on 12/4/2017.
- */
 
 public class FirstLoginActivity extends AppCompatActivity {
     private static final String TAG = SignupActivity.class.getSimpleName();
@@ -94,6 +91,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter your recovery email", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 if (address.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Enter Proper Address!!", Toast.LENGTH_SHORT).show();
                     return;
@@ -114,9 +112,8 @@ public class FirstLoginActivity extends AppCompatActivity {
         // TODO
         // In real apps this userId should be fetched
         // by implementing firebase auth
-        UserData user = new UserData(name,address,phone,recEmail,email,gender,0);
+        UserData user = new UserData(name,address,phone, recEmail, email,gender,0);
         mFirebaseDatabase.child(userId).setValue(user);
-
         addUserChangeListener();
     }
 

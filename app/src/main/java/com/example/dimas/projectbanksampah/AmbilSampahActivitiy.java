@@ -28,9 +28,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * Created by dimas on 11/28/2017.
- */
 
 public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implements View.OnClickListener {
 

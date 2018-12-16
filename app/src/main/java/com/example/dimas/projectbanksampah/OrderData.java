@@ -1,8 +1,5 @@
 package com.example.dimas.projectbanksampah;
 import com.google.firebase.database.IgnoreExtraProperties;
-/**
- * Created by dimas on 12/4/2017.
- */
 
 @IgnoreExtraProperties
 public class OrderData {

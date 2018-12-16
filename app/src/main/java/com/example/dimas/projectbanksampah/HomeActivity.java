@@ -25,10 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * Created by dimas on 11/28/2017.
- */
-
 public class HomeActivity extends Fragment implements View.OnClickListener{
     private ImageView imageView;
     private TextView points;

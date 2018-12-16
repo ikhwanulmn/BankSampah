@@ -17,9 +17,6 @@ import java.util.Calendar;
 import android.widget.TimePicker;
 
 
-/**
- * Created by Fazlur Rahman on 12/11/2017.
- */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
