@@ -22,17 +22,12 @@
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
--renamesourcefileattribute SourceFile
+#-renamesourcefileattribute SourceFile
 
 -keepclasseswithmembernames class * {
 	native <methods>;
-}
+} 
 
 -keepclasseswithmembers class * {
 	public <init>(android.content.Context, android.util.Attributeset);
 }
-
--keep class yourpackage.** { *; }
--dontusemixedcaseclassnames
--dontskipnonpubliclibraryclasses
--verbose
