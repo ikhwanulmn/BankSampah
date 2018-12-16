@@ -122,7 +122,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:ems="10"
-                android:hint="Alamat"
+                android:hint="Alamat (default jika dikosongkan)"
                 android:inputType="textPostalAddress" />
         </LinearLayout>
 
@@ -135,7 +135,7 @@
                 android:id="@+id/berat_sampah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Berat"
+                android:hint="Berat (kg)"
                 android:inputType="number"
                 android:padding="10dp" />
 

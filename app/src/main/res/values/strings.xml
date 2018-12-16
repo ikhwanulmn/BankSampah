@@ -43,11 +43,11 @@
 
     <string name="sampah_prompt">Pilih Tipe sampah</string>
     <string-array name="sampah_arrays">
-        <item>Botol Kaca (1 poin)</item>
-        <item>Botol Plastik (2 poin)</item>
-        <item>Paralon (3 poin)</item>
-        <item>Kardus (4 poin)</item>
-        <item>Kertas (5 poin)</item>
+        <item>Botol Kaca (1 poin/kg)</item>
+        <item>Botol Plastik (2 poin/kg)</item>
+        <item>Paralon (3 poin/kg)</item>
+        <item>Kardus (4 poin/kg)</item>
+        <item>Kertas (5 poin/kg)</item>
     </string-array>
 
     <string-array name="gender">

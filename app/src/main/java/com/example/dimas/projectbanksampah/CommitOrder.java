@@ -77,19 +77,19 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
 
     public void addPoints(OrderData data){
 
-        if (data.tipeSampah.equals("Botol Kaca (1 poin)") ) {
-            dataUser.points += data.berat * 1;
+        if (data.tipeSampah.equals("Botol Kaca (1 poin/kg)") ) {
+            dataUser.points += data.berat;
         }
-        else if (data.tipeSampah.equals("Botol Platik (2 poin)")){
+        else if (data.tipeSampah.equals("Botol Platik (2 poin/kg)")){
             dataUser.points += data.berat * 2;
         }
-        else if (data.tipeSampah.equals("Paralon (3 poin)")){
+        else if (data.tipeSampah.equals("Paralon (3 poin/kg)")){
             dataUser.points += data.berat * 3;
         }
-        else if (data.tipeSampah.equals("Kardus (4 poin)")){
+        else if (data.tipeSampah.equals("Kardus (4 poin/kg)")){
             dataUser.points += data.berat * 4;
         }
-        else if (data.tipeSampah.equals("Kertas ")){
+        else if (data.tipeSampah.equals("Kertas (5 poin/kg)")){
             dataUser.points += data.berat * 5;
         }
 
