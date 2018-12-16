@@ -40,7 +40,7 @@ public class ProfileActivity extends Fragment {
     private EditText newPassword;
     private int terbuka;
     private FirebaseAuth auth;
-    private TextView nama,gender,alamat,nomor,emailrec,textNewPass;
+    private TextView nama,gender,alamat,nomor,textNewPass;
     public ProfileActivity() {
     }
 
@@ -57,7 +57,6 @@ public class ProfileActivity extends Fragment {
         gender = (TextView)v.findViewById(R.id.textViewGender);
         alamat = (TextView)v.findViewById(R.id.textViewAlamat);
         nomor = (TextView)v.findViewById(R.id.textViewNo);
-        emailrec = (TextView)v.findViewById(R.id.textViewEmailRec);
 
         mFirebaseDatabase.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -67,7 +66,7 @@ public class ProfileActivity extends Fragment {
                 gender.setText(data.gender);
                 alamat.setText(data.address);
                 nomor.setText(data.phone);
-                emailrec.setText(data.recEmail);
+
             }
 
             @Override

@@ -78,7 +78,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
     public void addPoints(OrderData data){
 
         if (data.tipeSampah.equals("Botol Kaca (1 poin)") ) {
-            dataUser.points += data.berat;
+            dataUser.points += data.berat * 1;
         }
         else if (data.tipeSampah.equals("Botol Platik (2 poin)")){
             dataUser.points += data.berat * 2;
@@ -89,7 +89,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
         else if (data.tipeSampah.equals("Kardus (4 poin)")){
             dataUser.points += data.berat * 4;
         }
-        else if (data.tipeSampah.equals("Kertas (5 poin)")){
+        else if (data.tipeSampah.equals("Kertas ")){
             dataUser.points += data.berat * 5;
         }
 

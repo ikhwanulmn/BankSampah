@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FirstLoginActivity extends AppCompatActivity {
     private static final String TAG = SignupActivity.class.getSimpleName();
-    private EditText inputFullName, inputAddress, inputPhone, inputRecEmail;
+    private EditText inputFullName, inputAddress, inputPhone;
     private Spinner inputGender;
     private Button next;
     private ProgressBar progressBar;
@@ -55,7 +55,7 @@ public class FirstLoginActivity extends AppCompatActivity {
         inputFullName = (EditText) findViewById(R.id.name);
         inputAddress = (EditText) findViewById(R.id.address);
         inputPhone = (EditText) findViewById(R.id.phone);
-        inputRecEmail = (EditText) findViewById(R.id.recEmail);
+
         inputGender = (Spinner) findViewById(R.id.gender);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
@@ -67,7 +67,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                 String name = inputFullName.getText().toString();
                 String address = inputAddress.getText().toString();
                 String phone = inputPhone.getText().toString();
-                String recEmail = inputRecEmail.getText().toString();
+
                 String gender = inputGender.getSelectedItem().toString();
                 profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                 user.updateProfile(profileUpdates);
@@ -83,12 +83,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(phone) ) {
-                    Toast.makeText(getApplicationContext(), "Enter yout phone number", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(recEmail)) {
-                    Toast.makeText(getApplicationContext(), "Enter your recovery email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter your phone number", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -97,7 +92,7 @@ public class FirstLoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                createUser(name, address, phone, recEmail, email, gender);
+                createUser(name, address, phone, email, gender);
                 progressBar.setVisibility(View.VISIBLE);
                 //create user
 
@@ -108,11 +103,11 @@ public class FirstLoginActivity extends AppCompatActivity {
         });
     }
 
-    private void createUser(String name, String address, String phone, String recEmail, String email, String gender) {
+    private void createUser(String name, String address, String phone, String email, String gender) {
         // TODO
         // In real apps this userId should be fetched
         // by implementing firebase auth
-        UserData user = new UserData(name,address,phone, recEmail, email,gender,0);
+        UserData user = new UserData(name,address,phone, email,gender,0);
         mFirebaseDatabase.child(userId).setValue(user);
         addUserChangeListener();
     }
