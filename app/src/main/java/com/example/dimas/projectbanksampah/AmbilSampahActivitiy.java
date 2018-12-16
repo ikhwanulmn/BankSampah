@@ -116,7 +116,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                     Toast.makeText(((MainActivity) getActivity()), "Yout Default Home Address Will Be Used", Toast.LENGTH_SHORT).show();
                 }
 
-                createOrder(nama, userId, waktu, tanggal, tipeSampah, beratSampah);
+                createOrder(nama, userId, waktu, tanggal, alamat, tipeSampah, beratSampah);
 
                 android.support.v4.app.Fragment fragment = new CommitOrder(orderId,data,orderData);
 
@@ -139,8 +139,8 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         }
     }
 
-    private void createOrder(String name, String userId, String waktu, String tanggal, String tipeSampah, Integer beratSampah ) {
-        orderData = new OrderData(name, userId, waktu, tanggal, tipeSampah, beratSampah);
+    private void createOrder(String name, String userId, String waktu, String tanggal, String alamat, String tipeSampah, Integer beratSampah ) {
+        orderData = new OrderData(name, userId, waktu, tanggal, alamat, tipeSampah, beratSampah);
         orderId = mFirebaseDatabase.push().getKey();
         mFirebaseDatabase.child(orderId).setValue(orderData);
         addUserChangeListener();

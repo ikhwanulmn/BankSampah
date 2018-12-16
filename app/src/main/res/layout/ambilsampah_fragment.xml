@@ -129,14 +129,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp">
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/berat_sampah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:hint="Berat"
                 android:inputType="number"
                 android:padding="10dp" />
@@ -146,9 +144,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp">
+            android:orientation="vertical">
 
             <Spinner
                 android:id="@+id/spinner"
