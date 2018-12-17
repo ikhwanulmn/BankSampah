@@ -89,7 +89,7 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
                 android:gravity="center_vertical"
-                android:text="Home Adress" />
+                android:text="Alamat" />
 
             <EditText
                 android:id="@+id/address"
@@ -118,7 +118,7 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
                 android:gravity="center_vertical"
-                android:text="Gender" />
+                android:text="Jenis Kelamin" />
 
             <Spinner
                 android:id="@+id/gender"
@@ -146,7 +146,7 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
                 android:gravity="center_vertical"
-                android:text="Telephone Number" />
+                android:text="Nomor Telepon / HP" />
 
             <EditText
                 android:id="@+id/phone"
@@ -170,7 +170,7 @@
             android:background="@drawable/mybutton"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:text="Next" />
+            android:text="Berikutnya" />
 
     </LinearLayout>
     <ProgressBar

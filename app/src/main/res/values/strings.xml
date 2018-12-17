@@ -21,7 +21,7 @@
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="btn_forgot_password"><u>Lupa password?</u></string>
     <string name="btn_reset_password">Reset Password</string>
-    <string name="btn_back"><![CDATA[Back]]></string>
+    <string name="btn_back">KEMBALI</string>
     <string name="hint_new_email">Email baru</string>
     <string name="btn_change">Ubah</string>
     <string name="btn_send">Kirim</string>
