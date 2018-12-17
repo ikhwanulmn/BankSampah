@@ -101,20 +101,30 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 String tanggal = inputTanggal.getText().toString();
                 String tipeSampah = inputTipeSampah.getSelectedItem().toString();
                 String alamat = inputAlamat.getText().toString();
-                Integer beratSampah = Integer.valueOf(inputBerat.getText().toString());
+                String beratSampahStr = inputBerat.getText().toString();
 
                 if (TextUtils.isEmpty(waktu)) {
-                    Toast.makeText(((MainActivity) getActivity()), "Enter your full name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(((MainActivity) getActivity()), "Masukkan waktu penjemputan sampah", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(tanggal)) {
-                    Toast.makeText(((MainActivity) getActivity()), "Enter your address", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(((MainActivity) getActivity()), "Masukkan tanggal penjemputan sampah", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(((MainActivity) getActivity()), beratSampahStr, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty((alamat))){
-                    Toast.makeText(((MainActivity) getActivity()), "Yout Default Home Address Will Be Used", Toast.LENGTH_SHORT).show();
+
+                if (TextUtils.isEmpty((alamat))){
+                    Toast.makeText(((MainActivity) getActivity()), "Masukkan lokasi penjemputan sampah", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+                if (TextUtils.isEmpty(beratSampahStr)){
+                    Toast.makeText(((MainActivity) getActivity()), "Masukkan berat sampah", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Integer beratSampah = Integer.valueOf(inputBerat.getText().toString());
 
                 createOrder(nama, userId, waktu, tanggal, alamat, tipeSampah, beratSampah);
 

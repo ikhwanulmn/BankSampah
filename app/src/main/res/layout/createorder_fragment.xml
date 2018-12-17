@@ -29,7 +29,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="50dp"
             android:text="Proceed Order"
+            android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <TextView
@@ -86,21 +88,24 @@
         <Button
             android:id="@+id/cancel"
             style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/btn_cancel"
-            android:text="Cancel"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonblue"
+            android:text="Batal"
+            android:textColor="@android:color/white"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/proceed"
             style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/btn_proceed"
-            android:text="Proceed"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonblue"
+            android:text="Lanjutkan"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main"
+    android:background="@drawable/blueprism"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -42,28 +42,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@android:color/white"
             android:text="BIODATA"
             android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewnama"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:gravity="center_vertical"
                 android:text="@string/hint_name" />
 
             <EditText
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
-                android:ems="10"
+                android:textColor="@android:color/white"
+                android:ems="15"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -71,13 +78,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView82"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:gravity="center_vertical"
                 android:text="Home Adress" />
 
@@ -86,7 +96,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:ems="15"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -94,13 +107,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="171dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:gravity="center_vertical"
                 android:text="Gender" />
 
@@ -108,7 +124,10 @@
                 android:id="@+id/gender"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
                 android:entries="@array/gender"
+                android:textColor="@android:color/white"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -116,13 +135,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:gravity="center_vertical"
                 android:text="Telephone Number" />
 
@@ -131,15 +153,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:ems="15"
                 android:inputType="phone" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:background="@drawable/mybutton"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"

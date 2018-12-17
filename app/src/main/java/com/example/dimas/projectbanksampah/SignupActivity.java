@@ -46,14 +46,14 @@ public class SignupActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+//        btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
 
-        btnResetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
-            }
-        });
+//        btnResetPassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
+//            }
+//        });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,17 +70,17 @@ public class SignupActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Masukkan alamat email!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Masukkan password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Password terlalu singkat (minimal 6 karakter)", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //createUser(email);
@@ -95,10 +95,10 @@ public class SignupActivity extends AppCompatActivity {
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "This email address is already in use by another account" /*+ task.getException()*/,
+                                    Toast.makeText(SignupActivity.this, "Alamat email telah digunakan oleh akun lain" /*+ task.getException()*/,
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(SignupActivity.this, "Welcome to NyampahID", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignupActivity.this, "Selamat Datang di E-Bank Sampah", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(SignupActivity.this, FirstLoginActivity.class));
                                     finish();
                                 }

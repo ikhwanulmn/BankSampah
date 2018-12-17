@@ -1,34 +1,34 @@
 <resources>
-    <string name="app_name">NyampahID</string>
+    <string name="app_name">E-Bank Sampah</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
-    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
-    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
-    <string name="change_email">Change Email</string>
-    <string name="change_password">Change Password</string>
-    <string name="send_password_reset_email">Send Password reset email</string>
-    <string name="remove_user">Remove user</string>
-    <string name="new_pass">New Password</string>
-    <string name="title_activity_profile">NyampahID</string>
+    <string name="minimum_password">Password terlalu singkat (minimal 6 karakter) </string>
+    <string name="auth_failed">Login gagal, periksa email dan password Anda atau silakan Register</string>
+    <string name="change_email">Ubah Email</string>
+    <string name="change_password">Ubah Password</string>
+    <string name="send_password_reset_email">Kirim email reset password</string>
+    <string name="remove_user">Hapus user</string>
+    <string name="new_pass">Password Baru</string>
+    <string name="title_activity_profile">E-Bank Sampah</string>
     <string name="title_activity_login">Sign in</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Nama Lengkap</string>
     <string name="alamat">Alamat</string>
     <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">Register Now!!</string>
-    <string name="btn_link_to_login">I Have an Account Already!!</string>
+    <string name="btn_link_to_register">REGISTER</string>
+    <string name="btn_link_to_login"><u>Saya sudah memiliki akun</u></string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
-    <string name="btn_forgot_password">Forgot your password?</string>
+    <string name="btn_forgot_password"><u>Lupa password?</u></string>
     <string name="btn_reset_password">Reset Password</string>
-    <string name="btn_back"><![CDATA[<< Back]]></string>
-    <string name="hint_new_email">New Email</string>
-    <string name="btn_change">Change</string>
-    <string name="btn_send">Send</string>
-    <string name="btn_remove">Remove</string>
+    <string name="btn_back"><![CDATA[Back]]></string>
+    <string name="hint_new_email">Email baru</string>
+    <string name="btn_change">Ubah</string>
+    <string name="btn_send">Kirim</string>
+    <string name="btn_remove">Hapus</string>
     <string name="btn_sign_out">Sign Out</string>
-    <string name="lbl_forgot_password">Forgot password?</string>
-    <string name="forgot_password_msg">We will sent you instruction to reset password</string>
+    <string name="lbl_forgot_password">Lupa password?</string>
+    <string name="forgot_password_msg">Kami akan mengirimkan instruksi untuk melakukan reset password</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -39,9 +39,9 @@
     <string name="hint_gender">Jenis Kelamin</string>
     <string name="hint_recoveryemail">Recovery Email</string>
     <string name="hint_noHP">Nomor Handphone</string>
-    <string name="hint_save">SAVE</string>
+    <string name="hint_save">SIMPAN</string>
 
-    <string name="sampah_prompt">Pilih Tipe sampah</string>
+    <string name="sampah_prompt">Pilih Tipe Sampah</string>
     <string-array name="sampah_arrays">
         <item>Botol Kaca (1 poin/kg)</item>
         <item>Botol Plastik (2 poin/kg)</item>

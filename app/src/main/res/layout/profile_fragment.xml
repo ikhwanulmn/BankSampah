@@ -36,32 +36,38 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Profile"
+            android:text="Profil"
+            android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="105dp"
             android:layout_height="100dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:layout_gravity="center"
+            android:paddingTop="8dp"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="@string/hint_name" />
 
             <TextView
                 android:id="@+id/textViewNama"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical" />
 
@@ -70,32 +76,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="@string/hint_gender" />
 
             <TextView
                 android:id="@+id/textViewGender"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="@string/hint_alamat" />
 
@@ -103,6 +115,8 @@
                 android:id="@+id/textViewAlamat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical" />
         </LinearLayout>
@@ -110,12 +124,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="@string/hint_noHP" />
 
@@ -123,6 +139,8 @@
                 android:id="@+id/textViewNo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical" />
         </LinearLayout>
