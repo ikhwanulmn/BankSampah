@@ -67,7 +67,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
         phone = (TextView) v.findViewById(R.id.noHPPemesan);
 
         name.setText(dataUser.name);
-        address.setText(dataUser.address);
+        address.setText(dataOrder.alamat);
         tanggal.setText(dataOrder.tanggal);
         waktu.setText(dataOrder.waktu);
         phone.setText(dataUser.phone);

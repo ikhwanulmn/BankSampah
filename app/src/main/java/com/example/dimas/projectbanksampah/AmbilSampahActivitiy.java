@@ -88,7 +88,6 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         inputBerat = (EditText) v.findViewById(R.id.berat_sampah);
         progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
 
-
         return v;
     }
 
@@ -115,7 +114,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                 }
 
                 if (TextUtils.isEmpty((alamat))){
-                    Toast.makeText(((MainActivity) getActivity()), "Masukkan lokasi penjemputan sampah", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(((MainActivity) getActivity()), "Alamat rumah akan digunakan", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
