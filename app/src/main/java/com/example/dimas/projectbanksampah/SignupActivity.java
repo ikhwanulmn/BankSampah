@@ -1,3 +1,14 @@
+/*
+    Ditulis oleh Ikhwanul Murtadlo
+    Editor: Android Studio
+    Compiler dan lib yang digunakan: Android Studio,
+                  JRE 1.8.0_152-release-1024-b02 amd64
+                  JVM OpenJDK 64-Bit Server VM by JetBrains.s.r.o
+    Versi dan Upgrade History: 3.1.4
+    Tanggal pembuatan software: 24 Juli 2018
+    Deskripsi singkat tentang software: Android Studio adalah Integrated Development Enviroment (IDE) untuk sistem operasi Android
+*/
+
 package com.example.dimas.projectbanksampah;
 
 import android.content.Intent;
@@ -46,14 +57,6 @@ public class SignupActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-//        btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
-
-//        btnResetPassword.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
-//            }
-//        });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

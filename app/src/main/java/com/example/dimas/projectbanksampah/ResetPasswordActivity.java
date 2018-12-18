@@ -1,3 +1,14 @@
+/*
+    Ditulis oleh Ikhwanul Murtadlo
+    Editor: Android Studio
+    Compiler dan lib yang digunakan: Android Studio,
+                  JRE 1.8.0_152-release-1024-b02 amd64
+                  JVM OpenJDK 64-Bit Server VM by JetBrains.s.r.o
+    Versi dan Upgrade History: 3.1.4
+    Tanggal pembuatan software: 24 Juli 2018
+    Deskripsi singkat tentang software: Android Studio adalah Integrated Development Enviroment (IDE) untuk sistem operasi Android
+*/
+
 package com.example.dimas.projectbanksampah;
 
 import android.os.Bundle;
@@ -47,7 +58,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 String email = inputEmail.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Enter your registered email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "Masukkan Alamat Email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -57,9 +68,9 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(ResetPasswordActivity.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ResetPasswordActivity.this, "Petunjuk untuk reset password sudah dikirim. Silakan cek email", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(ResetPasswordActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ResetPasswordActivity.this, "Reset email gagal. Periksa kembali email anda atau Silakan Register", Toast.LENGTH_SHORT).show();
                                 }
 
                                 progressBar.setVisibility(View.GONE);
