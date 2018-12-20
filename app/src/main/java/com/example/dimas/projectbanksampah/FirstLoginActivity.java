@@ -59,7 +59,7 @@ public class FirstLoginActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mFirebaseInstance = FirebaseDatabase.getInstance();
 
-        // get reference to 'users' node
+        // mendapatkan tabel user dari database
         mFirebaseDatabase = mFirebaseInstance.getReference("users");
 
         next = (Button) findViewById(R.id.next);
@@ -82,22 +82,22 @@ public class FirstLoginActivity extends AppCompatActivity {
                 String gender = inputGender.getSelectedItem().toString();
                 profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                 user.updateProfile(profileUpdates);
-
+                // pesan jika field nama tidak diisi. Pengguna tidak dapat melanjutkan ke halaman berikutnya
                 if (TextUtils.isEmpty(name)) {
                     Toast.makeText(getApplicationContext(), "Masukkan nama lengkap anda", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                // pesan jika field alamat tidak diisi. Pengguna tidak dapat melanjutkan ke halaman berikutnya
                 if (TextUtils.isEmpty(address)) {
                     Toast.makeText(getApplicationContext(), "Masukkan alamat rumah anda", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                // pesan jika field phone tidak diisi. Pengguna tidak dapat melanjutkan ke halaman berikutnya
                 if (TextUtils.isEmpty(phone) ) {
                     Toast.makeText(getApplicationContext(), "Masukkan nomor telepon/HP anda", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                // pesan jika field alamat kurang dari 6 huruf. Pengguna tidak dapat melanjutkan ke halaman berikutnya
                 if (address.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Masukkan alamat rumah dengan benar dan lengkap", Toast.LENGTH_SHORT).show();
                     return;
@@ -113,19 +113,15 @@ public class FirstLoginActivity extends AppCompatActivity {
             }
         });
     }
-
+    // Fungsi membuat user baru
     private void createUser(String name, String address, String phone, String email, String gender) {
-        // TODO
-        // In real apps this userId should be fetched
-        // by implementing firebase auth
+        // Mengirim data user baru ke firebase
         UserData user = new UserData(name,address,phone, email,gender,0);
         mFirebaseDatabase.child(userId).setValue(user);
         addUserChangeListener();
     }
 
-    /**
-     * User data change listener
-     */
+    // Listener untuk dibaca pada log running
     private void addUserChangeListener() {
         // User data change listener
         mFirebaseDatabase.child(userId).addValueEventListener(new ValueEventListener() {

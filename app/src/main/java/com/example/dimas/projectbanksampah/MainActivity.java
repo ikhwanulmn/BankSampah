@@ -43,7 +43,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
     private TextView name, email;
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
@@ -80,8 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-
+        
         displaySelectedScreen(R.id.nav_home);
 
         //get firebase auth instance

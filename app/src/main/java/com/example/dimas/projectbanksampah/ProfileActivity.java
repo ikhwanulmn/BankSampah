@@ -1,5 +1,5 @@
 /*
-    Ditulis oleh Ikhwanul Murtadlo
+    Ditulis oleh Ikhwanul Murtadlo, Evita Naomi R. S.
     Editor: Android Studio
     Compiler dan lib yang digunakan: Android Studio,
                   JRE 1.8.0_152-release-1024-b02 amd64
@@ -46,9 +46,6 @@ public class ProfileActivity extends Fragment {
     private FirebaseDatabase mFirebaseInstance;
     private String userId,orderId,address;
     private UserData data;
-    private OrderData orderData;
-    private Button btnChangePassword,btnExecChangePass;
-    private EditText newPassword;
     private int terbuka;
     private FirebaseAuth auth;
     private TextView nama,gender,alamat,nomor,textNewPass;
@@ -77,7 +74,6 @@ public class ProfileActivity extends Fragment {
                 gender.setText(data.gender);
                 alamat.setText(data.address);
                 nomor.setText(data.phone);
-
             }
 
             @Override

@@ -1,5 +1,5 @@
 /*
-    Ditulis oleh Ikhwanul Murtadlo
+    Ditulis oleh Ikhwanul Murtadlo, M. Gilang Akbar
     Editor: Android Studio
     Compiler dan lib yang digunakan: Android Studio,
                   JRE 1.8.0_152-release-1024-b02 amd64

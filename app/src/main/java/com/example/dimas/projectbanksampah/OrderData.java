@@ -25,7 +25,7 @@ public class OrderData {
     // DataSnapshot.getValue(User.class)
     public OrderData() {
     }
-
+    // Data order yang akan diproses
     public OrderData(String name, String userId, String waktu, String tanggal, String alamat, String tipeSampah, Integer berat) {
         this.name = name;
         this.userId = userId;

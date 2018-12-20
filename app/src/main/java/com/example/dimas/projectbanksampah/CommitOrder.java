@@ -51,33 +51,38 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
     }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //returning our layout file
+        //Mengembalikan ke tampilan
         //change R.layout.yourlayoutfilename for each of your fragments
         View v = inflater.inflate(R.layout.createorder_fragment, container, false);
         super.onCreate(savedInstanceState);
 
-        //Get Firebase auth instance
+        //Mendapatkan instance autentikasi firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
         mFirebaseInstance = FirebaseDatabase.getInstance();
         userId=user.getUid();
 
+        //mendapatkan data dari tabel order pada database
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
 
         // get reference to 'users' node
         userId = user.getUid();
 
+        // Aksi jika memilih "Lanjutkan" pada rincian permintaan
         proceed = (Button) v.findViewById(R.id.proceed);
         proceed.setOnClickListener(this);
 
+        // Aksi jika memilih "Batal" pada rincian permintaan
         cancel = (Button) v.findViewById(R.id.cancel);
         cancel.setOnClickListener(this);
 
+        // Memasukkan data order ke database
         name = (TextView) v.findViewById(R.id.namaPemesan);
         address = (TextView) v.findViewById(R.id.alamatPemesan);
         tanggal = (TextView) v.findViewById(R.id.tanggalPengPemesan);
         waktu = (TextView) v.findViewById(R.id.waktuPengPemesan);
         phone = (TextView) v.findViewById(R.id.noHPPemesan);
 
+        // Menampilkan data ke tampilan rincian permintaan
         name.setText(dataUser.name);
         address.setText(dataOrder.alamat);
         tanggal.setText(dataOrder.tanggal);
@@ -87,6 +92,7 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
         return v;
     }
 
+    // Ketentuan jumlah poin yang akan masuk untuk setiap kategori sampah
     public void addPoints(OrderData data){
 
         if (data.tipeSampah.equals("Botol Kaca (1 poin/kg)") ) {
@@ -105,13 +111,17 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
             dataUser.points += data.berat * 5;
         }
 
+        // Mengambil users dari database untuk diproses
         mFirebaseDatabase = mFirebaseInstance.getReference("users");
+        // Menambahkan poin ke tabel user pada database
         mFirebaseDatabase.child(userId).child("points").setValue(dataUser.points);
     }
     @Override
     public void onClick(View v) {
         Fragment fragment;
         switch (v.getId()) {
+            // Perintah jika tombol "lanjutkan" dipilih
+            // Menyimpan data order yang telah masuk di database
             case R.id.proceed:
                 fragment = new HomeActivity();
                 addPoints(this.dataOrder);
@@ -122,6 +132,11 @@ public class CommitOrder extends Fragment implements View.OnClickListener {
                     ft.commit();
                 }
                 break;
+            // Perintah jika tombol "Batal" dipilih
+            // Menghapus data order yang telah masuk ke database.
+            // Karena semua data sebenarnya akan dimasukkan terlebih dahulu ke database saat pengguna melanjutkan ke rincian permintaan.
+            // Jika pengguna menyetujui, maka data akan disimpan.
+            // jika tidak dan pengguna memilih "batal", maka data order yang telah masuk sebeumnya dihapus karena dibatalkan oleh pengguna
             case R.id.cancel:
 
                 mFirebaseDatabase.child(data).removeValue();

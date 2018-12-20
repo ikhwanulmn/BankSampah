@@ -1,4 +1,14 @@
 <resources>
+    <!--
+    Ditulis oleh Evita Naomi, Ikhwanul Murtadlo
+    Editor: Android Studio
+    Compiler dan lib yang digunakan: Android Studio,
+        JRE 1.8.0_152-release-1024-b02 amd64
+        JVM OpenJDK 64-Bit Server VM by JetBrains.s.r.o
+    Versi dan Upgrade History: 3.1.4
+    Tanggal pembuatan software: 24 Juli 2018
+    Deskripsi singkat tentang software: Android Studio adalah Integrated Development Enviroment (IDE) untuk sistem operasi Android
+-->
     <string name="app_name">E-Bank Sampah</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>

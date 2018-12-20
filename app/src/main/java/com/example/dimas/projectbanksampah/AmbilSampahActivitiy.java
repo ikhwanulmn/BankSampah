@@ -1,5 +1,5 @@
 /*
-    Ditulis oleh Ikhwanul Murtadlo
+    Ditulis oleh Ikhwanul Murtadlo, Evita Naomi R.S.
     Editor: Android Studio
     Compiler dan lib yang digunakan: Android Studio,
                   JRE 1.8.0_152-release-1024-b02 amd64
@@ -82,6 +82,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
             }
         });
 
+        // Mengambil data dari database pada tabel order
         mFirebaseDatabase = mFirebaseInstance.getReference("order");
 
         // Button untuk order
@@ -146,9 +147,10 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
                     Toast.makeText(((MainActivity) getActivity()), "Masukkan berat sampah", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                // Memasukkan berat sampah ke variabel tipe Integer untuk kalkulasi poin
                 Integer beratSampah = Integer.valueOf(inputBerat.getText().toString());
 
+                // Mengirim data ke fungsi createOrder (untuk membuat pemesanan penjemputan sampah)
                 createOrder(nama, userId, waktu, tanggal, alamat, tipeSampah, beratSampah);
 
                 android.support.v4.app.Fragment fragment = new CommitOrder(orderId,data,orderData);
@@ -175,6 +177,7 @@ public class AmbilSampahActivitiy extends android.support.v4.app.Fragment implem
         }
     }
 
+    // Mengirim data ke database
     private void createOrder(String name, String userId, String waktu, String tanggal, String alamat, String tipeSampah, Integer beratSampah ) {
         orderData = new OrderData(name, userId, waktu, tanggal, alamat, tipeSampah, beratSampah);
         orderId = mFirebaseDatabase.push().getKey();

@@ -14,6 +14,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
 public class UserData {
+
     public String name;
     public String address;
     public String phone;
@@ -30,7 +31,6 @@ public class UserData {
         this.name = name;
         this.address = address;
         this.phone = phone;
-
         this.email = email;
         this.gender = gender;
         this.points = points;

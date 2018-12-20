@@ -1,5 +1,5 @@
 /*
-    Ditulis oleh Ikhwanul Murtadlo
+    Ditulis oleh Ikhwanul Murtadlo, M. Gilang Akbar
     Editor: Android Studio
     Compiler dan lib yang digunakan: Android Studio,
                   JRE 1.8.0_152-release-1024-b02 amd64
@@ -55,27 +55,28 @@ public class ResetPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = inputEmail.getText().toString().trim();
+            // Mendapatkan alamat email dari field email pada tampilan
+            String email = inputEmail.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Masukkan Alamat Email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(getApplication(), "Masukkan Alamat Email", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                progressBar.setVisibility(View.VISIBLE);
-                auth.sendPasswordResetEmail(email)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(ResetPasswordActivity.this, "Petunjuk untuk reset password sudah dikirim. Silakan cek email", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(ResetPasswordActivity.this, "Reset email gagal. Periksa kembali email anda atau Silakan Register", Toast.LENGTH_SHORT).show();
-                                }
+            progressBar.setVisibility(View.VISIBLE);
+            auth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(ResetPasswordActivity.this, "Petunjuk untuk reset password sudah dikirim. Silakan cek email", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ResetPasswordActivity.this, "Reset email gagal. Periksa kembali email anda atau Silakan Register", Toast.LENGTH_SHORT).show();
+                        }
 
-                                progressBar.setVisibility(View.GONE);
-                            }
-                        });
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
             }
         });
     }
