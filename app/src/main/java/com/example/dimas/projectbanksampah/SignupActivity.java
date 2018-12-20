@@ -98,7 +98,7 @@ public class SignupActivity extends AppCompatActivity {
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "Alamat email telah digunakan oleh akun lain" /*+ task.getException()*/,
+                                    Toast.makeText(SignupActivity.this, "Alamat email tidak valid atau tidak tersedia" /*+ task.getException()*/,
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(SignupActivity.this, "Selamat Datang di E-Bank Sampah", Toast.LENGTH_SHORT).show();

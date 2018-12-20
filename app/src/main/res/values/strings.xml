@@ -54,5 +54,6 @@
         <item>Laki-Laki</item>
         <item>Wanita</item>
     </string-array>
+    <string name="custSupport">Untuk dukungan teknis dan informasi lanjutan, silakan hubungi kami di</string>
 
 </resources>
